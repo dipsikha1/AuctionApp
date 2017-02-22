@@ -1,0 +1,27 @@
+﻿
+
+<h2>{{controller.item.name}}</h2>
+
+<form ng-submit="controller.addCustomer(customer)">
+    <input ng-model="customer.name" placeholder="Bidder Name" />
+    <input ng-model="customer.bidAmount" placeholder="Bid Amount(Dollar)" />
+    <input button class="btn-primary" type="submit" />
+</form>
+
+<table class="table table-striped" style="background-color:darkgray">
+    <tr>
+        <th>Bidder Name</th>
+        <th>Bid Amount</th>
+        <th></th>
+        
+    </tr>
+    <tr ng-repeat="customer in controller.item.customers" style="text-decoration-style:solid">
+        <td>{{customer.name}}</td>
+        <td>{{customer.bidAmount | currency}}</td>
+
+        <td> <button class="close" ng-click="controller.deleteCustomer(customer)">&times;</button></td>
+    </tr>
+
+
+
+</table>

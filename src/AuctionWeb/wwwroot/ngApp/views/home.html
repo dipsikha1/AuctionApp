@@ -1,0 +1,38 @@
+
+<h2>Home</h2>
+
+<form ng-submit="controller.post(item)">
+    <input ng-model="item.name" placeholder="Name" />
+    <input ng-model="item.description" placeholder="Description" />
+    <input ng-model="item.numOfBid" placeholder="Number of Bids" />
+    <input ng-model="item.minBid" placeholder="Minimum Bid" />
+    <input ng-model="item.buyItNowPrice" placeholder="Buy it Now Price" />
+
+    <input button class="btn-primary" type="submit" />
+
+</form>
+
+    <table class="table table-striped" style="background-color:aliceblue">
+        <tr>
+
+            <th> Name</th>
+            <th>Description</th>
+            <th>Minimum Bid</th>
+            <th>Number of Bids</th>
+            <th>Buy it Now Price</th>
+            <th></th>
+            <th></th>
+       </tr>
+        <tr ng-repeat="item in controller.items" style="text-decoration-style:solid">
+
+            <td>{{item.name}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.minBid}}</td>
+            <td>{{item.numOfBids}}</td>
+            <td><a>{{item.buyItNowPrice}}</a></td>
+           
+
+            <td> <button ui-sref="details({id:item.id})">Bid</button></td>
+            <td> <button class="close" ng-click="controller.delete(item.id)">&times;</button></td>
+        </tr>
+    </table>
